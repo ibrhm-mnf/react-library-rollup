@@ -2,10 +2,13 @@
   "name": "react-library-rollup",
   "version": "1.0.0",
   "description": "This is a react library bundled using rollup",
-  "main": "index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,9 @@
     "url": "https://github.com/ibrhm-mnf/react-library-rollup/issues"
   },
   "homepage": "https://github.com/ibrhm-mnf/react-library-rollup#readme",
+  "peerDependencies": {
+    "react": ">=16.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
@@ -37,5 +43,11 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.7.6",
     "rollup-plugin-terser": "^5.3.0"
-  }
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "dist"
+  ]
 }
