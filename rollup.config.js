@@ -3,6 +3,8 @@ import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
 import builtins from 'rollup-plugin-node-builtins'
 import { terser } from 'rollup-plugin-terser'
+import postcss from 'rollup-plugin-postcss'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 const dist = 'dist'
 const bundle = 'bundle'
@@ -23,7 +25,11 @@ export default {
     }
   ],
   plugins: [
+    peerDepsExternal(),
     builtins(),
+    postcss({
+      modules: true
+    }),
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**'
@@ -31,6 +37,5 @@ export default {
     resolve(),
     commonjs(),
     production && terser()
-  ],
-  external: ['react']
+  ]
 }
