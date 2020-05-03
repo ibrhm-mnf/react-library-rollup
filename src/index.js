@@ -1,1 +1,1 @@
-export { default as DfpSlot } from './DfpSlot'
+export { default as DemoComponent } from './components/DemoComponent'

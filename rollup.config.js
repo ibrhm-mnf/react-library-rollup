@@ -1,5 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
+import builtins from 'rollup-plugin-node-builtins'
 import { terser } from 'rollup-plugin-terser'
 
 const dist = 'dist'
@@ -21,11 +23,13 @@ export default {
     }
   ],
   plugins: [
-    resolve(),
+    builtins(),
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**'
     }),
+    resolve(),
+    commonjs(),
     production && terser()
   ],
   external: ['react']

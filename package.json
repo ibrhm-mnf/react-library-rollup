@@ -6,9 +6,10 @@
   "module": "dist/bundle.esm.js",
   "sideEffects": false,
   "scripts": {
+    "prepare": "rollup --config",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "start": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@rollup/plugin-babel": "^5.0.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
@@ -42,8 +44,10 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
     "eslint-plugin-standard": "^4.0.1",
+    "react": "^16.13.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.7.6",
+    "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-terser": "^5.3.0"
   },
   "engines": {
