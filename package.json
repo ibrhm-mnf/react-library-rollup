@@ -7,9 +7,9 @@
   "sideEffects": false,
   "scripts": {
     "prepare": "rollup --config",
-    "prebuild": "rimraf dist",
-    "build": "rollup -c",
-    "start": "rollup -c -w"
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c",
+    "start": "npm run clean && rollup -c -w"
   },
   "repository": {
     "type": "git",
